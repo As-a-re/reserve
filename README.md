@@ -1,6 +1,6 @@
 # ReserveCore Engine
 
-A production-oriented high-concurrency booking backend implementing the NSP Backend Engineering Assessment.
+A production-oriented high-concurrency booking backend.
 
 ## Requirements covered
 - PostgreSQL transaction + `SELECT ... FOR UPDATE` resource locking.
