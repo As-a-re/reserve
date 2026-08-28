@@ -1,0 +1,33 @@
+{
+  "name": "reservecore-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "High-concurrency resilient booking backend for the NSP assessment",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "worker": "node src/workers/notificationWorker.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "jest --runInBand",
+    "concurrency:test": "node scripts/concurrency-test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "bullmq": "^5.40.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "ioredis": "^5.6.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}

@@ -1,0 +1,5 @@
+const svc=require('../services/authService');
+async function register(req,res,next){ try{const {email,password}=req.body; if(!email||!password)return res.status(400).json({error:'email and password are required'}); const user=await svc.register(email,password); res.status(201).json({user});}catch(e){next(e)} }
+async function login(req,res,next){try{const out=await svc.login(req.body.email,req.body.password); res.cookie('refreshToken',out.refresh,{httpOnly:true,sameSite:'lax',secure:process.env.NODE_ENV==='production',maxAge:7*86400000}); res.json({user:out.user,accessToken:out.access});}catch(e){next(e)}}
+async function refresh(req,res,next){try{const token=req.cookies.refreshToken; if(!token)return res.status(401).json({error:'Refresh token missing'}); const out=await svc.refresh(token); res.cookie('refreshToken',out.refresh,{httpOnly:true,sameSite:'lax',secure:process.env.NODE_ENV==='production',maxAge:7*86400000}); res.json({accessToken:out.access});}catch(e){next(e)}}
+module.exports={register,login,refresh};
