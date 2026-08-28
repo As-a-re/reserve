@@ -1,4 +1,4 @@
-# ReserveCore Engine — Backend Submission
+# ReserveCore Engine
 
 A production-oriented high-concurrency booking backend implementing the NSP Backend Engineering Assessment.
 
